@@ -43,7 +43,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 
-<!-- Schema Markup -->
+<!-- Schema Markup - ENHANCED -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -58,10 +58,10 @@
         "url": "https://r66lottery.com/66Lottery-Logo.png"
       },
       "sameAs": [
-        "https://r66lottery.com/about.html",
-        "https://r66lottery.com/privacy.html",
-        "https://r66lottery.com/contactus.html",
-        "https://r66lottery.com/responsible-gaming.html",
+        "https://r66lottery.com/about",
+        "https://r66lottery.com/privacy",
+        "https://r66lottery.com/contactus",
+        "https://r66lottery.com/responsible-gaming",
         "https://www.youtube.com/@66lotteryofficial",
         "https://www.instagram.com/66lotteryofficial"
       ]
@@ -71,7 +71,7 @@
       "@id": "https://r66lottery.com/#author",
       "name": "James",
       "description": "Independent researcher analysing Indian online gaming platforms, payment reliability, and responsible play standards.",
-      "url": "https://r66lottery.com/about.html"
+      "url": "https://r66lottery.com/about"
     },
     {
       "@type": "WebSite",
@@ -156,6 +156,30 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Many users have reported successful gameplay and withdrawals when following platform rules. Users are advised to play responsibly and understand the risks involved."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is 66 Lottery safe and secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the platform uses 256-bit SSL encryption (same as banks), secure payment gateways, multi-factor authentication, and regular security audits. Personal data and financial transactions are fully protected."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What payment methods does 66 Lottery accept?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The platform supports UPI (GPay, PhonePe, Paytm, BHIM), all major bank cards (Visa, Mastercard, RuPay), e-wallets (Paytm Wallet, PhonePe Wallet), and cryptocurrency (USDT via TRC20). All deposits are instant."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I play on my mobile phone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, 66 Lottery is fully optimized for mobile devices. Users can download the dedicated app (Android & iOS) for the best experience, or play directly in mobile browser."
           }
         }
       ]
@@ -364,10 +388,11 @@ a {
   box-shadow: 0 12px 32px rgba(227,30,36,0.3);
 }
 
+/* FIXED: Single container definition */
 .container {
-  max-width: 1200px; /* or 1140px, depending on design */
-  margin: 0 auto;    /* centers the content */
-  padding: 0 20px;   /* spacing on left and right */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
   box-sizing: border-box;
 }
 
@@ -414,7 +439,7 @@ a {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 3rem;
   align-items: center;
   position: relative;
@@ -458,7 +483,7 @@ a {
 .hero-cta {
   display: flex;
   gap: 20px; 
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   animation: fadeInUp 0.8s ease 0.4s backwards;
 }
@@ -503,6 +528,8 @@ a {
 .hero-visual {
   position: relative;
   animation: fadeIn 1s ease 0.3s backwards;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .hero-card {
@@ -629,11 +656,6 @@ a {
   background: var(--off-white);
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .section-header {
   text-align: center;
   margin-bottom: 4rem;
@@ -666,25 +688,27 @@ a {
   margin: 0 auto;
 }
 
+/* FIXED: Banner slider positioning */
 .banner-image {
-  position: relative;        /* parent for absolute slides and dots */
+  position: relative;
   width: 100%;
-  max-width: 600px;
-  margin: 2rem auto;         /* spacing from other sections */
+  max-width: 800px;
+  margin: 3rem auto;
   background: #f5f5f5;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .slides-wrapper {
-  position: relative;        /* relative container for slides */
+  position: relative;
   width: 100%;
-  height: 400px;             /* fixed height, can adjust for mobile */
+  height: 400px;
 }
 
 .banner-slide {
-  position: absolute;        /* for fade effect */
+  position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -698,8 +722,8 @@ a {
 }
 
 .slider-dots {
-  position: absolute;        /* now absolute inside banner */
-  bottom: 10px;              /* bottom of banner */
+  position: absolute;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -708,34 +732,33 @@ a {
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
-  background: #ccc;
+  width: 12px;
+  height: 12px;
+  background: rgba(255,255,255,0.6);
   border-radius: 50%;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.dot:hover {
+  background: rgba(255,255,255,0.9);
 }
 
 .dot.active {
-  background: #ff5722;
+  background: var(--primary-red);
+  border-color: white;
+  transform: scale(1.2);
 }
 
-/* Responsive */
+/* Mobile optimization for banner */
 @media (max-width: 768px) {
   .slides-wrapper {
-    height: 250px;
+    height: 300px;
   }
 
-  .banner-slide {
-    max-width: 95%;
-  }
-}
-
-
-/* Mobile optimization */
-@media (max-width: 768px) {
-  .banner-slide {
-    max-width: 95%;
+  .banner-image {
+    margin: 2rem auto;
   }
 }
 
@@ -745,7 +768,7 @@ a {
 
 .games-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
@@ -917,6 +940,8 @@ a {
   font-size: 1.5rem;
   color: var(--primary-red);
   transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 1rem;
 }
 
 .faq-item.active .faq-icon {
@@ -1010,12 +1035,21 @@ a {
   box-shadow: 0 12px 32px rgba(0,0,0,0.25);
 }
 
-.card{background:#fff;padding:20px;border-radius:8px;margin-bottom:18px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-.card:hover{background:#ffe5e5}
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
 
-.blue-link{
-  color:#007BFF;
-  font-weight:600;
+.card:hover {
+  background: #ffe5e5;
+}
+
+.blue-link {
+  color: #007BFF;
+  font-weight: 600;
 }
 
 /* ============================================
@@ -1105,7 +1139,7 @@ a {
 }
 
 /* ============================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN - ENHANCED
    ============================================ */
 
 @media (max-width: 1024px) {
@@ -1114,12 +1148,16 @@ a {
     gap: 2rem;
   }
   
-  .hero-visual {
-    order: -1;
-  }
-  
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+  }
+  
+  .section-title {
+    font-size: 2.25rem;
+  }
+  
+  .games-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
 
@@ -1133,11 +1171,15 @@ a {
   }
   
   .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
   
   .section-title {
     font-size: 2rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
   }
   
   .cta-content h2 {
@@ -1154,6 +1196,59 @@ a {
   
   .stats-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .section {
+    padding: 3rem 1rem;
+  }
+  
+  .hero {
+    padding: 3rem 1rem;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .faq-question {
+    font-size: 1rem;
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .faq-answer {
+    padding: 0 1.5rem;
+  }
+  
+  .faq-item.active .faq-answer {
+    padding: 0 1.5rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.85rem;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .game-title {
+    font-size: 1.25rem;
+  }
+  
+  .feature-title {
+    font-size: 1.15rem;
   }
 }
 
@@ -1196,8 +1291,8 @@ a {
       <li><a href="#features" class="nav-link">Features</a></li>
       <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
       <li><a href="#faq" class="nav-link">FAQ</a></li>
-      <li><a href="/login.html" class="nav-link">Login</a></li>
-      <li><a href="/register.html" class="cta-button">Register Now</a></li>
+      <li><a href="/login" class="nav-link">Login</a></li>
+      <li><a href="/register" class="cta-button">Register Now</a></li>
     </ul>
     
     <button class="mobile-toggle" onclick="toggleMobileMenu()">☰ Menu</button>
@@ -1220,8 +1315,8 @@ a {
         <a href="https://www.66lottery28.com/#/pages/login/register?invitationCode=6571988809" class="btn-secondary" rel="nofollow sponsored">Login Now</a>
       </div>
     </div>
-    </div>
-    </section>
+  </div>
+</section>
 
  
 <div class="banner-image">
@@ -1250,9 +1345,9 @@ a {
 
   <!-- dots inside banner -->
   <div class="slider-dots">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
+    <span class="dot active" onclick="goToSlide(0)"></span>
+    <span class="dot" onclick="goToSlide(1)"></span>
+    <span class="dot" onclick="goToSlide(2)"></span>
   </div>
 </div>
 
@@ -1332,7 +1427,7 @@ a {
 
     <p>
       The
-      <a href="https://r66lottery.com/66lottery-game.html" class="blue-link">66 Lottery game app</a>
+      <a href="https://r66lottery.com/66lottery-game" class="blue-link">66 Lottery game app</a>
       offers various promotional benefits such as sign-up bonuses, referral rewards, and periodic activity-based incentives. Bonus terms and availability may vary according to platform policies.
     </p>
   </div>
@@ -1360,7 +1455,7 @@ a {
       <p>
         New players should complete the
         <strong>
-          <a href="https://r66lottery.com/66lottery-register.html" class="blue-link">
+          <a href="https://r66lottery.com/66lottery-register" class="blue-link">
             66 Lottery registration
           </a>
         </strong>
@@ -1391,11 +1486,11 @@ a {
              width="600"
              height="400"
              loading="lazy"
-             alt="66 Lottery registration interface">
+             alt="66 Lottery registration interface"
+             style="position:relative; opacity:1; border-radius:12px;">
       </div>
 
     </div>
-  </div>
   </div>
 </section>
 
@@ -1406,7 +1501,7 @@ a {
       <p>
         Mobile users who prefer a dedicated experience can choose the
         <strong>
-          <a href="https://r66lottery.com/66lottery-game.html" class="blue-link">
+          <a href="https://r66lottery.com/66lottery-game" class="blue-link">
             66 Lottery app
           </a>
         </strong>
@@ -1432,7 +1527,7 @@ a {
       <p>
         The term
         <strong>
-          <a href="https://r66lottery.com/66lottery-game.html" class="blue-link">
+          <a href="https://r66lottery.com/66lottery-game" class="blue-link">
             66 Lottery game download
           </a>
         </strong>
@@ -1466,7 +1561,7 @@ a {
       <p>
         Colour prediction formats are among the most discussed options on the platform.
         Some players review previous outcomes in an attempt to understand patterns,
-        while others rely on personal judgment. It’s important to remember that
+        while others rely on personal judgment. It's important to remember that
         results are system-generated and cannot be predicted with certainty.
       </p>
 
@@ -1486,7 +1581,7 @@ a {
       <p>
         A common concern among new users is whether the platform is genuine.
         As with any online gaming service, users are encouraged to verify
-        official sources and understand the platform’s policies before participating.
+        official sources and understand the platform's policies before participating.
       </p>
 
       <h3>Points to Review Before Getting Started</h3>
@@ -1539,12 +1634,13 @@ a {
         <li>Beginner-friendly interface</li>
       </ul>
 
-      <div class="register-image">
+      <div class="banner-image">
         <img src="66Lottery-Trending-Apps.webp"
              width="600"
              height="400"
              loading="lazy"
-             alt="66 Lottery trending mobile gaming platform">
+             alt="66 Lottery trending mobile gaming platform"
+             style="position:relative; opacity:1; border-radius:12px;">
       </div>
     </div>
   </div>
@@ -1654,7 +1750,8 @@ a {
 </section>
 
 
-    <section>
+<section>
+  <div class="container">
     <div class="hero-visual">
       <div class="hero-card">
         <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">🏆 Live Stats</h3>
@@ -1781,7 +1878,7 @@ a {
   <div class="cta-content">
     <h2>Ready to Win Big? 🎯</h2>
     <p>Join 50,000+ players winning real cash every day. Register now and get up to 200% welcome bonus!</p>
-    <a href="/register.html" class="btn-white">Create Free Account →</a>
+    <a href="https://www.66lottery28.com/#/pages/login/register?invitationCode=6571988809" class="btn-primary" rel="nofollow sponsored">Create Free Account →</a>
   </div>
 </section>
 
@@ -1807,28 +1904,28 @@ a {
         <ul class="footer-links">
           <li><a href="/">Home</a></li>
           <li><a href="#games">Games</a></li>
-          <li><a href="/register.html">Register</a></li>
-          <li><a href="/login.html">Login</a></li>
-          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/register">Register</a></li>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/about">About Us</a></li>
         </ul>
       </div>
       
       <div class="footer-column">
         <h4>Support</h4>
         <ul class="footer-links">
-          <li><a href="/contact.html">Contact Us</a></li>
+          <li><a href="/contact">Contact Us</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="/how-to-play.html">How to Play</a></li>
-          <li><a href="/responsible-gaming.html">Responsible Gaming</a></li>
+          <li><a href="/how-to-play">How to Play</a></li>
+          <li><a href="/responsible-gaming">Responsible Gaming</a></li>
         </ul>
       </div>
       
       <div class="footer-column">
         <h4>Legal</h4>
         <ul class="footer-links">
-          <li><a href="/terms.html">Terms & Conditions</a></li>
-          <li><a href="/privacy.html">Privacy Policy</a></li>
-          <li><a href="/disclaimer.html">Disclaimer</a></li>
+          <li><a href="/terms">Terms & Conditions</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/disclaimer">Disclaimer</a></li>
         </ul>
       </div>
     </div>
@@ -1853,7 +1950,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// FAQ Toggle
+// FAQ Toggle - FIXED
 function toggleFAQ(element) {
   const faqItem = element.parentElement;
   const isActive = faqItem.classList.contains('active');
@@ -1869,32 +1966,48 @@ function toggleFAQ(element) {
   }
 }
 
+// Banner slider - ENHANCED
+let currentSlideIndex = 0;
+const slides = document.querySelectorAll('.banner-slide');
+const dots = document.querySelectorAll('.dot');
 
-  const slides = document.querySelectorAll('.banner-slide');
-  const dots = document.querySelectorAll('.dot');
-  let index = 0;
+function showSlide(index) {
+  // Remove active from all
+  slides.forEach(slide => slide.classList.remove('active'));
+  dots.forEach(dot => dot.classList.remove('active'));
+  
+  // Add active to current
+  slides[index].classList.add('active');
+  dots[index].classList.add('active');
+  currentSlideIndex = index;
+}
 
-  function showSlide(i) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
+function goToSlide(index) {
+  showSlide(index);
+}
 
-    slides[i].classList.add('active');
-    dots[i].classList.add('active');
-    index = i;
-  }
+// Auto-advance slider
+setInterval(() => {
+  let nextIndex = (currentSlideIndex + 1) % slides.length;
+  showSlide(nextIndex);
+}, 3000);
 
-  setInterval(() => {
-    let nextIndex = (index + 1) % slides.length;
-    showSlide(nextIndex);
-  }, 2000);
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => showSlide(i));
-  });
-
-// Mobile menu toggle (placeholder)
+// Mobile menu toggle
 function toggleMobileMenu() {
-  alert('Mobile menu - implement dropdown or slide-in menu here');
+  const menu = document.querySelector('.nav-menu');
+  if (menu.style.display === 'flex') {
+    menu.style.display = 'none';
+  } else {
+    menu.style.display = 'flex';
+    menu.style.flexDirection = 'column';
+    menu.style.position = 'absolute';
+    menu.style.top = '70px';
+    menu.style.right = '20px';
+    menu.style.background = 'white';
+    menu.style.padding = '1rem';
+    menu.style.borderRadius = '8px';
+    menu.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
+  }
 }
 
 // Smooth scroll for anchor links
@@ -1904,8 +2017,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      
+      // Close mobile menu if open
+      const menu = document.querySelector('.nav-menu');
+      if (window.innerWidth <= 768) {
+        menu.style.display = 'none';
+      }
     }
   });
+});
+
+// Close mobile menu on window resize
+window.addEventListener('resize', () => {
+  const menu = document.querySelector('.nav-menu');
+  if (window.innerWidth > 768) {
+    menu.style.display = '';
+    menu.style.position = '';
+    menu.style.flexDirection = '';
+  }
 });
 </script>
 
